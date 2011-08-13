@@ -15,12 +15,12 @@ import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.util.Log;
 
-import com.couchbase.libcouch.AndCouch;
 import com.couchbase.libcouch.CouchDB;
 import com.couchbase.libcouch.ICouchClient;
 import com.phonegap.api.Plugin;
 import com.phonegap.api.PluginResult;
 import com.phonegap.api.PluginResult.Status;
+import com.photoshare.AndCouch;
 
 public class CouchDbPlugin extends Plugin {
 	
@@ -150,7 +150,7 @@ public class CouchDbPlugin extends Plugin {
 	
 	private void startCouch() {
 		Log.d(TAG, "Starting CouchDB");
-		couchServiceConnection = CouchDB.getService(this.ctx.getBaseContext(), null, "release-0.1", mCallback);
+		couchServiceConnection = CouchDB.getService(this.ctx.getBaseContext(), mCallback);
 	}
 	
 	public static String readAsset(AssetManager assets, String path) throws IOException {
